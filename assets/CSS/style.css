@@ -1,0 +1,87 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400;500;700;900&family=Outfit:wght@100;300;500;600;700;900&display=swap");
+
+
+
+body {
+    font-family: 'Inter', sans-serif;
+    color: #DCDCE2;
+    background-image: url("../Images/bg.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#logo {
+    width: 13%;
+    margin-top: 5vh;
+    margin-left: 10vw;
+}
+
+
+#titolo {
+    width: 30%;
+}
+
+h1 {
+    font-weight: 300;
+    font-size: 60px;
+    font-family:'Outfit', sans-serif;
+    line-height: 3rem;
+    padding-top: 6vh;
+}
+
+.grassetto {
+    font-weight: 600;
+    color: #fff;
+
+}
+
+h2 {
+    color: #d20094;
+    font-family: 'Outfit', sans-serif;
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: -15px;
+    
+
+}
+
+main {
+    margin-left: 10vw;
+}
+
+#istruzioni {
+    width: 60%;
+    margin-bottom: 4rem;
+
+}
+
+p {
+    font-size: 16px;
+    font-weight: 300;
+}
+
+ul li {
+    font-size: 16px;
+    line-height: 2.5rem;
+}
+
+
+footer {
+    margin-top: 10vh;
+}
+
+footer div {
+    margin-left: 10vw;
+    /*margin-right: 10vw; */
+    display:inline;
+   
+}
+
+#proceed {
+    margin-left: 40vw;
+}
+

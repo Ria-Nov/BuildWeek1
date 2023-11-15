@@ -1,6 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400;500;700;900&family=Outfit:wght@100;300;500;600;700;900&display=swap");
 
-body, html {
+body,
+html {
   font-family: "Inter", sans-serif;
   color: #dcdce2;
   height: 100vh;
@@ -38,6 +39,7 @@ body, html {
   line-height: 3rem;
   padding-top: 6vh;
 }
+
 .outfit {
   font-family: "Outfit", sans-serif;
 }
@@ -63,7 +65,7 @@ h2 {
 .testi {
 
   padding-bottom: 0;
-  
+
 
 }
 
@@ -93,39 +95,75 @@ footer div {
   margin-right: 10vw;
 }
 
-#proceed{
+#proceed {
   background-color: #00ffff;
   color: #0C113B;
   text-transform: uppercase;
   font-weight: bold;
-  padding: 20px 35px; 
-  text-align: center;   
-  text-decoration: none;   
-  cursor: pointer;  
-  border: none;    
+  padding: 20px 35px;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
   box-shadow: 0px 0px 18px #00FFFF;
-  }  
-   
-   
-#proceed:hover {  
-box-shadow: 0 0px 16px rgba(0, 0, 0, 0.2); 
 }
 
 
-#casella, label{
+#proceed:hover {
+  box-shadow: 0 0px 16px rgba(0, 0, 0, 0.2);
+}
+
+
+#casella,
+label {
   height: 2vh;
   vertical-align: top;
 }
 
-#casella{
+#casella {
   background-color: transparent;
   border: 2px #fff solid;
 }
 
+/* benchmark*/
+.domande {
+  font-size: 30px;
+  width: 40%;
+  margin: auto;
+  font-weight: 300;
+  margin-top: 10%;
+}
+
+
+.timer {
+  margin: 20px;
+  width: 200px;
+  height: 200px;
+  background-color: chartreuse;
+  position: fixed;
+  top: 0;
+  right: 0;
+  border-radius: 50%;
+}
+
+.contatore {
+
+  width: 40%;
+  margin: auto;
+  font-weight: bold;
+  margin-top: 10%;
+  text-align: center;
+  letter-spacing: 3px;
+  font-size: 20px;
+
+
+}
+
+
 
 /* feedback */
 
-.feedback h1{
+.feedback h1 {
   text-align: center;
   font-weight: 900;
   font-size: 60px;

@@ -149,12 +149,12 @@ label {
   width: 150px;
   height: 150px;
   background-color: chartreuse;
-  position: fixed;
+  /*position: fixed;*/
   top: 0;
-  right: 0;
+  float: right;
   border-radius: 50%;
   margin-right: 10vw;
-  margin-top: 3vw;
+  margin-top: 1vw;
 }
 
 .contatore {
@@ -173,23 +173,30 @@ label {
 #risposte {
   text-align: center;
   margin-top: 5%;
-  width: 40%;
-  margin: auto;
+  /*width: 40%;*/
+  /*margin: auto;*/
 
 }
-
+/*.opzione1 p {
+  display: inline;
+  width: 50%;
+}
+.opzione2 p {
+  display: inline;
+  width: 50%;
+}
 .opzione1,
 .opzione2 {
   background-color: rgba(255, 255, 255, 0.1);
   border: 3px solid transparent;
-  box-sizing: border-box;
+  display: inline-block;
   width: 50%;
   margin: 10px;
   border-radius: 40px 40px 40px 40px;
   box-shadow: 0 -8px 0px 10px;
     padding: 5px;
 
-}
+}*/
 
 /* feedback */
 

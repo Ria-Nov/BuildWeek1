@@ -96,22 +96,24 @@ footer .check {
   margin-right: 10vw;
 }
 
-#proceed, .moreinfo{
+#proceed,
+.moreinfo {
   background-color: #00ffff;
   color: #0C113B;
   text-transform: uppercase;
   font-weight: bold;
-  padding: 15px 50px; 
-  text-align: center;   
-  text-decoration: none;   
-  cursor: pointer;  
-  border: none;    
+  padding: 15px 50px;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
   box-shadow: 0px 0px 18px #00FFFF;
-  }  
-   
-   
-#proceed:hover, .moreinfo:hover {  
-box-shadow: 0 0px 16px rgba(0, 0, 0, 0.2); 
+}
+
+
+#proceed:hover,
+.moreinfo:hover {
+  box-shadow: 0 0px 16px rgba(0, 0, 0, 0.2);
 }
 
 
@@ -139,24 +141,28 @@ label {
 
 
 /* benchmark*/
-.domande h1{
-  font-size: 30px;
+.domande h1 {
+  font-size: 55px;
   width: 40%;
   margin: auto;
   font-weight: 300;
   margin-top: 10%;
+  text-align: center;
+  line-height: 53px;
 }
 
 
 .timer {
   margin: 20px;
-  width: 200px;
-  height: 200px;
+  width: 150px;
+  height: 150px;
   background-color: chartreuse;
-  position: fixed;
+  /*position: fixed;*/
   top: 0;
-  right: 0;
+  float: right;
   border-radius: 50%;
+  margin-right: 10vw;
+  margin-top: 1vw;
 }
 
 .contatore {
@@ -172,62 +178,73 @@ label {
 
 }
 
+#risposte {
+  text-align: center;
+  margin-top: 5%;
+  /*width: 40%;*/
+  /*margin: auto;*/
 
+}
+/*.opzione1 p {
+  display: inline;
+  width: 50%;
+}
+.opzione2 p {
+  display: inline;
+  width: 50%;
+}
+.opzione1,
+.opzione2 {
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 3px solid transparent;
+  display: inline-block;
+  width: 50%;
+  margin: 10px;
+  border-radius: 40px 40px 40px 40px;
+  box-shadow: 0 -8px 0px 10px;
+    padding: 5px;
+
+}*/
 
 /* feedback */
 
-.feedback{
+.feedback {
   text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.feedback h1{
+.feedback h1 {
   font-weight: 700;
   font-size: 60px;
   padding-top: 6vh;
 }
 
-#stelline{
+#stelline {
   padding-top: 6vh;
 }
 
-.feedback .opinione{
+.feedback .opinione {
   margin-top: -5vh;
- font-weight: 300;
+  font-weight: 300;
 }
 
-.recensione{
+.recensione {
   margin-top: 6vh;
 }
 
-fieldset{
+fieldset {
   border: none;
   border-bottom: 2px solid #d20094;
   text-align: left;
   margin-bottom: 10vh;
 }
 
-.commento{
+.commento {
   background: none;
   color: #808181;
   border: none;
   font-size: larger;
   margin-left: 1vw;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- 

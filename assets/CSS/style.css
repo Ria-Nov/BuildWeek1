@@ -3,6 +3,8 @@
 body, html {
   font-family: "Inter", sans-serif;
   color: #dcdce2;
+  height: 100vh;
+  width: 100vw;
   background-image: url("../Images/bg.jpg");
   background-repeat: no-repeat;
   background-size: cover;
@@ -16,7 +18,7 @@ body, html {
 
 /* istruzioni main */
 
-main {
+.rientro {
   margin-left: 10vw;
 }
 
@@ -30,10 +32,9 @@ main {
   width: 30%;
 }
 
-h1 {
+.titolo h1 {
   font-weight: 300;
   font-size: 60px;
-
   line-height: 3rem;
   padding-top: 6vh;
 }
@@ -119,4 +120,14 @@ box-shadow: 0 0px 16px rgba(0, 0, 0, 0.2);
 #casella{
   background-color: transparent;
   border: 2px #fff solid;
+}
+
+
+/* feedback */
+
+.feedback h1{
+  text-align: center;
+  font-weight: 900;
+  font-size: 60px;
+  padding-top: 6vh;
 }

@@ -47,7 +47,7 @@ body, html {
   color: #fff;
 }
 
-h2 {
+.istruzioni h2 {
   color: #d20094;
 
   font-size: 2rem;
@@ -93,12 +93,12 @@ footer div {
   margin-right: 10vw;
 }
 
-#proceed{
+#proceed, .moreinfo{
   background-color: #00ffff;
   color: #0C113B;
   text-transform: uppercase;
   font-weight: bold;
-  padding: 20px 35px; 
+  padding: 15px 50px; 
   text-align: center;   
   text-decoration: none;   
   cursor: pointer;  
@@ -107,7 +107,7 @@ footer div {
   }  
    
    
-#proceed:hover {  
+#proceed:hover, .moreinfo:hover {  
 box-shadow: 0 0px 16px rgba(0, 0, 0, 0.2); 
 }
 
@@ -125,9 +125,44 @@ box-shadow: 0 0px 16px rgba(0, 0, 0, 0.2);
 
 /* feedback */
 
-.feedback h1{
+.feedback{
   text-align: center;
-  font-weight: 900;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.feedback h1{
+  font-weight: 700;
   font-size: 60px;
   padding-top: 6vh;
 }
+
+#stelline{
+  padding-top: 6vh;
+}
+
+.feedback .opinione{
+  margin-top: -5vh;
+ font-weight: 300;
+}
+
+.recensione{
+  margin-top: 6vh;
+}
+
+fieldset{
+  border: none;
+  border-bottom: 2px solid #d20094;
+  text-align: left;
+  margin-bottom: 10vh;
+}
+
+.commento{
+  background: none;
+  color: #808181;
+  border: none;
+  font-size: larger;
+  margin-left: 1vw;
+}
+

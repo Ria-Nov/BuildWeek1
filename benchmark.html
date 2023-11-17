@@ -15,34 +15,27 @@
             <img class="logo" src="assets/Images/epicode_logo.png" />
         </div>
 
-
-        <div class="timer">
-            <!--TIMER-->
+        <div id="timer">
+            <canvas height="200" width="200" id="counter">    
+                
+              </div>
         </div>
 
     </header>
     <main>
 
-        <div class="container">
-            <!--Container-->
-            <div class="domande">
-                <h1 class="outfit">How can I create a <span class="grassetto"> checkbox in HTML? </span></h1>
-            </div>
-            <div id="risposte">
-                Ciao!
-                
-
-            </div>
+        <div id="quizContainer"></div>
 
 
 
         </div>
     </main>
     <footer>
-        <p class="contatore">QUESTION</p>
+        <div class="divft" id="contatore"></div>
+        <div><button type="button" id="next" class="divft" name="next" onclick="submitAnswer()">NEXT</button></div>
     </footer>
 
-
+<script src="assets/JavaScript/benchmarkscript.js"></script>
 </body>
 
 </html>

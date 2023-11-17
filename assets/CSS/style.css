@@ -19,6 +19,8 @@ html {
 
 /* istruzioni main */
 
+/* home */
+
 .rientro {
   margin-left: 10vw;
 }
@@ -63,10 +65,7 @@ html {
 }
 
 .testi {
-
   padding-bottom: 0;
-
-
 }
 
 p {
@@ -95,6 +94,8 @@ footer div {
   margin-right: 10vw;
 }
 
+/* bottoni */
+
 #proceed,
 .moreinfo, #next {
   background-color: #00ffff;
@@ -116,9 +117,9 @@ footer div {
 }
 
 
-#proceed:hover {
+/*#proceed:hover {
   box-shadow: 0 0px 16px rgba(0, 0, 0, 0.2);
-}
+}*/
 
 
 #casella,

@@ -4,9 +4,14 @@
 - attivazione bottone con classe disabled */
 
 
-let proceed = document.getElementById("proceed");
+let proceed = document.querySelector("#proceed");
+let casella = document.querySelector('#casella');
 
-function procedi() {
-    
+let procedi = casella.onchange = function(){
+    if(this.checked){
+        proceed.disabled = false;
+    } else {
+        proceed.disabled = true;
+    }
 
 }

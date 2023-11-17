@@ -1,6 +1,5 @@
 document.addEventListener('DOMContentLoaded', function () {
     const stars = document.querySelectorAll('.star');
-    const selectedRating = document.getElementById('selectedRating');
 
     stars.forEach(function (star) {
         star.addEventListener('mouseover', function () {
@@ -9,14 +8,13 @@ document.addEventListener('DOMContentLoaded', function () {
             highlightStars(ratingValue);
         });
 
-        star.addEventListener('mouseout', function () {
-            resetStars();
-        });
+        // star.addEventListener('click', function () {
+        //     resetStars();
+        // });
 
         star.addEventListener('click', function () {
+            // resetStars();
             const ratingValue = this.getAttribute('data-rating');
-            selectedRating.innerHTML = 'Hai valutato con ' + ratingValue + ' stella(e).';
-            resetStars();
             highlightStars(ratingValue);
         });
     });

@@ -285,7 +285,7 @@ fieldset {
   display: inline-block;
   width: 30px;
   height: 30px;
-  background-image: url('../Images/star.svg'); /* Immagine stella vuota */
+  background-image: url('../Images/star-regular.svg'); /* Immagine stella vuota */
   background-size: cover;
   cursor: pointer;
   border: 1px solid transparent; /* Aggiunto il bordo trasparente alle stelle vuote */
@@ -300,4 +300,29 @@ fieldset {
 
 .star:hover {
   border-color: gold; /* Cambiato il colore del bordo a oro al passaggio del mouse */
+}
+
+/* result */
+
+.centro {
+  text-align: center;
+  margin: auto;
+  
+}
+
+.allinea{
+  display: inline-block;
+  width:33%;
+  height: 30vh;
+  text-align: center;
+}
+
+#doughnutChart {
+  border:none;
+  margin-top: 5vh;
+}
+
+#rate{
+  margin-left: -10vw;
+  
 }

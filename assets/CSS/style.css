@@ -97,7 +97,7 @@ footer div {
 /* bottoni */
 
 #proceed,
-.moreinfo, #next {
+.moreinfo, #next, #rate {
   background-color: #00ffff;
   color: #0C113B;
   text-transform: uppercase;

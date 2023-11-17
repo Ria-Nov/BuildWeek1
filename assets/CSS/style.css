@@ -279,3 +279,25 @@ fieldset {
   margin-left: 1vw;
 }
 
+/* stelline */
+
+.star {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  background-image: url('../Images/star.svg'); /* Immagine stella vuota */
+  background-size: cover;
+  cursor: pointer;
+  border: 1px solid transparent; /* Aggiunto il bordo trasparente alle stelle vuote */
+  transition: border-color 0.3s; /* Aggiunto un effetto di transizione per una transizione più fluida */
+}
+
+.star:hover,
+.star.active,
+.star.selected {
+  background-image: url('../Images/star.svg'); /* Immagine stella piena */
+}
+
+.star:hover {
+  border-color: gold; /* Cambiato il colore del bordo a oro al passaggio del mouse */
+}

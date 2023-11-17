@@ -1,60 +1,28 @@
-/* PROGETTO
-- timer: deve partire a 60 secondi (60000  ms), resettarsi ad ogni cambio domanda automaticamente, fa partire domanda successiva allo scadere, si resetta ad ogni cambio domanda (click bottone), deve comunicare con il grafico (libreria esterna?), comunicare con il counter
-- domande: creare div con domande, radio button (appendChild, numero risposte contenute nell'array), cambio domande al click del bottone o allo scadere del tempo, cambio colori per risposta selezionata, comunicare con il localstorage? -> prossima pagina/stessa pagina, database
- array stessi indici, risposte random
-    questions()= prende le domande, le mette nell'h2, cicla for con answers(), display domande, mette risposte nei radio button
-    // answers() = cicla le risposte, prende quella giusta, scarta le sbagliate
-    save()= salva nella variabile per counter e percentuali, local storage?
-    contatore()= progredire il numero di domande
-    bottone() = attivare bottone, ripulire pagina per domanda successiva, al decimo reset cambiare pagina in risultati
-- counter: comunicare con bottone e timer
-- bottone: resettare pagina, comunicare con il counter, ultimo reset -> risultati (for con indice)
-*/
+// /* PROGETTO
+// - timer: deve partire a 60 secondi (60000  ms), resettarsi ad ogni cambio domanda automaticamente, fa partire domanda successiva allo scadere, si resetta ad ogni cambio domanda (click bottone), deve comunicare con il grafico (libreria esterna?), comunicare con il counter
+// - domande: creare div con domande, radio button (appendChild, numero risposte contenute nell'array), cambio domande al click del bottone o allo scadere del tempo, cambio colori per risposta selezionata, comunicare con il localstorage? -> prossima pagina/stessa pagina, database
+//  array stessi indici, risposte random
+//     questions()= prende le domande, le mette nell'h2, cicla for con answers(), display domande, mette risposte nei radio button
+//     // answers() = cicla le risposte, prende quella giusta, scarta le sbagliate
+//     save()= salva nella variabile per counter e percentuali, local storage?
+//     contatore()= progredire il numero di domande
+//     bottone() = attivare bottone, ripulire pagina per domanda successiva, al decimo reset cambiare pagina in risultati
+// - counter: comunicare con bottone e timer
+// - bottone: resettare pagina, comunicare con il counter, ultimo reset -> risultati (for con indice)
+// */
 
 
-// timer
-
-let counter = document.getElementById('counter').getContext('2d');
-let no = 10;
-let pointToFill = 4.72;
-let cw = counter.canvas.width;
-let ch = counter.canvas.height;
-let diff;
-
-function fillCounter() {
-    diff = ((no / 10) * Math.PI * 2 * 10);
-    counter.clearRect(0, 0, cw, ch);
-    counter.lineWidth = 15;
-    counter.fillStyle = '#FFF';
-    counter.strokeStyle = '#00FFFF';
-    counter.textAlign = 'center';
-    counter.font = "25px monospace";
-    counter.color= '#FFF';
-    counter.fillText(no, 100, 110);
-    counter.beginPath();
-    counter.arc(100, 100, 60, pointToFill, diff / 60 + pointToFill);
-    counter.stroke();
-
-    if (no == 0) {
-        clearInterval(fill);
-        counter.fillStyle = 'transparent';
-        counter.fillRect(0, 0, cw, ch);
-        if (currentQuestionIndex < questions.length) {
-            currentQuestionIndex++;
-            showCurrentQuestion();
-            clearInterval()
-                       
-        }else{
-            //...pagina risultati
-        };
-
-    }
-    no--;
+// localstorage
+if (!localStorage.getItem('quizResponses')) {
+  localStorage.setItem('quizResponses', '');
 }
 
-let fill = setInterval(fillCounter, 1000);
-
-// end timer
+function gestisciRisposta(domanda, rispostaData, corretta) {
+  var quizResponses = localStorage.getItem('quizResponses') || '';
+  var nuovaRisposta = domanda + '|' + rispostaData + '|' + corretta + ';';
+  quizResponses += nuovaRisposta;
+  localStorage.setItem('quizResponses', quizResponses);
+}
 
 // libreria
 
@@ -160,85 +128,151 @@ const questions = [
 
   // end libreria
 
-  // div domande
+// TIMER
+let fill;
 
-  let container = document.getElementById('container');
-  let domande = document.querySelector('.domande h2');
-  let risposte = document.querySelector('#risposte');
-  let next = document.getElementById('next');
-  let contatore = document.getElementById('contatore');
+function startTimer() {
+  let counter = document.getElementById('counter').getContext('2d');
+  let no = 60;
+  let pointToFill = 4.72;
+  let cw = counter.canvas.width;
+  let ch = counter.canvas.height;
+  let diff;
 
-//   function eventHandler(){
-//         question(questions.incorrect_answers);
-//         // save();
-//         // contatore();
-//         // bottone();
-//   }
+  //QUI BISOGNA MODIFICARE L'AMPIEZZA DEL CERCHIO INTORNO AL TIMER?
+  //NON E'AMPIA COME TUTTO IL CERCHIO....
+  function fillCounter() {
+    diff = ((no / 60) * Math.PI * 2 * 60);
+    counter.clearRect(0, 0, cw, ch);
+    counter.lineWidth = 15;
+    counter.fillStyle = '#FFF';
+    counter.strokeStyle = '#00FFFF';
+    counter.textAlign = 'center';
+    counter.font = "25px monospace";
+    counter.color = '#FFF';
+    counter.fillText(no, 100, 110);
+    counter.beginPath();
+    counter.arc(100, 100, 60, pointToFill, diff / 60 + pointToFill);
+    counter.stroke();
 
-//   eventHandler()
+    if (no <= 0) {
+      clearInterval(fill);
+      counter.fillStyle = 'transparent';
+      counter.fillRect(0, 0, cw, ch);
 
+      // RESET TIMER AL CAMBIO DOMANDA
+      // Riavvia il timer per la nuova domanda!
+      currentQuestionIndex++;
+      if (currentQuestionIndex < questions.length) {
+        showCurrentQuestion();
+        resetTimer(); 
+      } else {
+        resetQuiz();
+      }
+    }
+    no--;
+  }
 
+  fill = setInterval(fillCounter, 1000);
+}
 
+//QUESTO SERVE PER FAR AZZERARE IL TIMER: CREDO ABBIA UN RITARDO DI UN SECONDO
+function resetTimer() {
+  clearInterval(fill);
+  startTimer();
+}
+
+// VARIABILI PER IL RISULTATO DELLE RISPOSTE
+let corrette = 0;
+let sbagliate = 0;
+
+// VARIABILE INDICE DOMANDA CORRENTE
 let currentQuestionIndex = 0;
 
-        window.onload = function () {
-            showCurrentQuestion();
-        };
+// DIV DOMANDE
+let container = document.getElementById('container');
+let domande = document.querySelector('.domande h2');
+let risposte = document.querySelector('#risposte');
+let next = document.getElementById('next');
+let contatore = document.getElementById('contatore');
 
-        function showCurrentQuestion() {
-            const quizContainer = document.getElementById('quizContainer');
-            const currentQuestion = questions[currentQuestionIndex];
-            contatore.innerText = `Domanda ${currentQuestionIndex + 1}/${questions.length}`
-            quizContainer.innerHTML = `
-                <h2 class="centrato">${currentQuestion.question}</h2>
-                <div class="centrato">${generateAnswerOptions(currentQuestion)}</div>`
-            ;
-        }
+// VARIABILE PER IL TIMER
+let no = 60;
 
-        function generateAnswerOptions(question) {
-            return question.incorrect_answers.concat(question.correct_answer)
-                .sort(() => Math.random() - 0.5) // Mischia le risposte
-                .map(answer => `<div  class="inline">
-                    <input type="radio" name="answer" value="${answer}" id="${answer.replace(/ /g, '')} class="radiobtn">
-                    <label for="${answer.replace(/ /g, '')}">${answer}</label></div>`
-                ).join('');
-        };
+// AVVIARE IL TIMER ALL'INIZIO DEL TEST
+window.onload = function () {
+  showCurrentQuestion();
+  startTimer(); 
+};
 
-        function submitAnswer() {
-            const selectedAnswer = document.querySelector('input[name="answer"]:checked');
-            let corrette = 0
-            let sbagliate = 0
-            if (selectedAnswer) {
-                const currentQuestion = questions[currentQuestionIndex];
-                if (selectedAnswer.value === currentQuestion.correct_answer) {
-                    corrette += 1
-                   
-                    showCurrentQuestion()
-                } else if(no == 0){
-                    if(selectedAnswer.value === currentQuestion.correct_answer){
-                        corrette += 1;
-                    }
+// DOMANDA CORRENTE:
+function showCurrentQuestion() {
+  const quizContainer = document.getElementById('quizContainer');
+  const currentQuestion = questions[currentQuestionIndex];
+  contatore.innerText = `Domanda ${currentQuestionIndex + 1}/${questions.length}`;
+  quizContainer.innerHTML = `
+        <h2 class="centrato">${currentQuestion.question}</h2>
+        <div class="centrato">${generateAnswerOptions(currentQuestion)}</div>`;
+}
 
-                   showCurrentQuestion()
-                }else{
-                    sbagliate += 1
-                    showCurrentQuestion()
-                }
+//GENERARE LE RISPOSTE PER LA DOMANDA 
+function generateAnswerOptions(question) {
+  return question.incorrect_answers.concat(question.correct_answer)
+    .sort(() => Math.random() - 0.5) // RICORDIAMO MATH.RANDOM FA UNO SHUFFLE 
+    .map(answer => `<div  class="inline">
+            <input type="radio" name="answer" value="${answer}" id="${answer.replace(/ /g, '')} class="radiobtn">
+            <label for="${answer.replace(/ /g, '')}">${answer}</label></div>`
+    ).join('');
+}
 
-                currentQuestionIndex++;
+// GESTIONE DELLA RISPOSTA DELL'UTENTE
+function submitAnswer() {
+  const selectedAnswer = document.querySelector('input[name="answer"]:checked');
 
-                if (currentQuestionIndex < questions.length) {
-                    showCurrentQuestion();
-                } else {
-                    alert("Quiz completato!");
-                    resetQuiz();
-                }
-            } else {
-                alert("Seleziona una risposta prima di procedere.");
-            }
-        }
+  if (selectedAnswer) {
+    const currentQuestion = questions[currentQuestionIndex];
+    if (selectedAnswer.value === currentQuestion.correct_answer) {
+      // AGGIUNGE UN PUNTO SE RISPOSTA CORRETTA
+      corrette += 1;
+    } else if (no <= 0) {
+      if (selectedAnswer.value === currentQuestion.correct_answer) {
+        // 
+        corrette += 1;
+      }
+    } else {
+      // AGGIUNGE UN PUNTO SE RISPOSTA SBAGLIATA
+      sbagliate += 1;
+    }
 
-        function resetQuiz() {
-            currentQuestionIndex = 0;
-            showCurrentQuestion();
-        }
+    // LOCAL STORAGE!
+    saveUserAnswer(currentQuestionIndex, selectedAnswer.value);
+
+    currentQuestionIndex++;
+
+
+    // RESET TIMER A INIZIO NUOVA DOMANDA
+    if (currentQuestionIndex < questions.length) {
+      showCurrentQuestion();
+      resetTimer(); 
+    }
+  }
+}
+
+// SALVARE RISPOSTA NEL LOCAL STORAGE
+function saveUserAnswer(questionIndex, userAnswer) {
+  const userAnswers = JSON.parse(localStorage.getItem('userAnswers')) || {};
+  userAnswers[questionIndex] = userAnswer;
+  localStorage.setItem('userAnswers', JSON.stringify(userAnswers));
+}
+
+// AZZERARE IL QUIZ ALLA FINE
+function resetQuiz() {
+
+  corrette = 0;
+  sbagliate = 0;
+  currentQuestionIndex = 0;
+
+  localStorage.removeItem('userAnswers');
+
+  showCurrentQuestion();
+}

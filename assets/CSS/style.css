@@ -285,7 +285,7 @@ fieldset {
   display: inline-block;
   width: 30px;
   height: 30px;
-  background-image: url('../Images/star.svg'); /* Immagine stella vuota */
+  background-image: url('../Images/star-regular.svg'); /* Immagine stella vuota */
   background-size: cover;
   cursor: pointer;
   border: 1px solid transparent; /* Aggiunto il bordo trasparente alle stelle vuote */
@@ -295,7 +295,8 @@ fieldset {
 .star:hover,
 .star.active,
 .star.selected {
-  background-image: url('../Images/star.svg'); /* Immagine stella piena */
+  background-image: url('../Images/star.svg');
+  border: 1px solid black; /* Immagine stella piena */
 }
 
 .star:hover {

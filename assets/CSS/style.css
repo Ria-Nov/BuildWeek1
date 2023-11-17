@@ -96,7 +96,7 @@ footer div {
 }
 
 #proceed,
-.moreinfo {
+.moreinfo, #next {
   background-color: #00ffff;
   color: #0C113B;
   text-transform: uppercase;
@@ -143,6 +143,22 @@ label {
   line-height: 53px;
 }
 
+#timer {
+  float: right;
+  border-radius: 50%;
+  margin-right: 5vw;
+} 
+
+.divft{
+  display: inline-block;
+  margin-left: 10vw;
+}
+
+#next{
+  float: right;
+  margin-right: 10vw;
+}
+
 
 .timer {
   margin: 20px;
@@ -168,6 +184,28 @@ label {
   font-size: 20px;
 
 
+}
+
+.centrato{
+  /* display: flex;
+  justify-content: center;
+  align-items: center; */
+  /* flex-direction: column; */
+  margin-left: 10vw;
+  margin-top: 7vh;
+}
+
+.inline{
+  border: 2px solid #fff;
+  border-radius: 15px;
+  margin: 20px;
+  padding: 30px;
+  /* display: flex;
+  align-items: center;
+  justify-content: center; */
+  background-color: purple;
+  width: 50%;
+  
 }
 
 #risposte {

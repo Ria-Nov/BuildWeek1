@@ -301,3 +301,28 @@ fieldset {
 .star:hover {
   border-color: gold; /* Cambiato il colore del bordo a oro al passaggio del mouse */
 }
+
+/* result */
+
+.centro {
+  text-align: center;
+  margin: auto;
+  
+}
+
+.allinea{
+  display: inline-block;
+  width:33%;
+  height: 30vh;
+  text-align: center;
+}
+
+#doughnutChart {
+  border:none;
+  margin-top: 5vh;
+}
+
+#rate{
+  margin-left: -10vw;
+  
+}

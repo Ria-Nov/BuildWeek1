@@ -259,14 +259,14 @@ function submitAnswer() {
 }
 
 // SALVARE RISPOSTA NEL LOCAL STORAGE
-function saveUserAnswer(questionIndex, userAnswer) {
-  const userAnswers = JSON.parse(localStorage.getItem('userAnswers')) || {};
-  userAnswers[questionIndex] = userAnswer;
-  localStorage.setItem('userAnswers', JSON.stringify(userAnswers));
-}
+//function saveUserAnswer(questionIndex, userAnswer) {
+  //const userAnswers = JSON.parse(localStorage.getItem('userAnswers')) || {};
+  //userAnswers[questionIndex] = userAnswer;
+  //localStorage.setItem('userAnswers', JSON.stringify(userAnswers));
+//}
 
 // AZZERARE IL QUIZ ALLA FINE
-function resetQuiz() {
+/*function resetQuiz() {
 
   corrette = 0;
   sbagliate = 0;
@@ -275,4 +275,4 @@ function resetQuiz() {
   localStorage.removeItem('userAnswers');
 
   showCurrentQuestion();
-}
+}*/

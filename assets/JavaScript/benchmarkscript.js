@@ -191,7 +191,7 @@ let currentQuestionIndex = 0;
 
 // DIV DOMANDE
 let container = document.getElementById('container');
-let domande = document.querySelector('.domande h2');
+let domande = document.querySelector('.domande h2');  //questa serve?
 let risposte = document.querySelector('#risposte');
 let next = document.getElementById('next');
 let contatore = document.getElementById('contatore');

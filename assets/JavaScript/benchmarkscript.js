@@ -140,7 +140,6 @@ function startTimer() {
   let diff;
 
   //QUI BISOGNA MODIFICARE L'AMPIEZZA DEL CERCHIO INTORNO AL TIMER?
-  //NON E'AMPIA COME TUTTO IL CERCHIO....
   function fillCounter() {
     diff = ((no / 60) * Math.PI * 2 * 60);
     counter.clearRect(0, 0, cw, ch);
@@ -160,15 +159,7 @@ function startTimer() {
       counter.fillStyle = 'transparent';
       counter.fillRect(0, 0, cw, ch);
 
-      // RESET TIMER AL CAMBIO DOMANDA
-      // Riavvia il timer per la nuova domanda!
       currentQuestionIndex++;
-      if (currentQuestionIndex < questions.length) {
-        showCurrentQuestion();
-        resetTimer(); 
-      } else {
-        resetQuiz();
-      }
     }
     no--;
   }
@@ -191,16 +182,19 @@ let currentQuestionIndex = 0;
 
 // DIV DOMANDE
 let container = document.getElementById('container');
-let domande = document.querySelector('.domande h2');
 let risposte = document.querySelector('#risposte');
 let next = document.getElementById('next');
 let contatore = document.getElementById('contatore');
+let risultati = document.getElementById('paginaRisultati');
+let quiz = document.getElementById('paginaQuiz');
+let timer = document.getElementById('timer');
 
 // VARIABILE PER IL TIMER
 let no = 60;
 
 // AVVIARE IL TIMER ALL'INIZIO DEL TEST
 window.onload = function () {
+  risultati.style.display = 'none';
   showCurrentQuestion();
   startTimer(); 
 };
@@ -231,21 +225,23 @@ function submitAnswer() {
 
   if (selectedAnswer) {
     const currentQuestion = questions[currentQuestionIndex];
+  
     if (selectedAnswer.value === currentQuestion.correct_answer) {
       // AGGIUNGE UN PUNTO SE RISPOSTA CORRETTA
-      corrette += 1;
+      corrette = corrette + 1;
+      
     } else if (no <= 0) {
       if (selectedAnswer.value === currentQuestion.correct_answer) {
         // 
-        corrette += 1;
+        corrette = corrette + 1;
+       
+
       }
     } else {
       // AGGIUNGE UN PUNTO SE RISPOSTA SBAGLIATA
-      sbagliate += 1;
+      sbagliate = sbagliate +1;
+     
     }
-
-    // LOCAL STORAGE!
-    saveUserAnswer(currentQuestionIndex, selectedAnswer.value);
 
     currentQuestionIndex++;
 
@@ -254,25 +250,50 @@ function submitAnswer() {
     if (currentQuestionIndex < questions.length) {
       showCurrentQuestion();
       resetTimer(); 
-    }
+    }else{
+      quiz.style.display = 'none';
+      timer.style.display = 'none';
+      risultati.style.display = 'inline';
+  } 
+      
   }
+ 
+ return sbagliate
 }
 
-// SALVARE RISPOSTA NEL LOCAL STORAGE
-//function saveUserAnswer(questionIndex, userAnswer) {
-  //const userAnswers = JSON.parse(localStorage.getItem('userAnswers')) || {};
-  //userAnswers[questionIndex] = userAnswer;
-  //localStorage.setItem('userAnswers', JSON.stringify(userAnswers));
-//}
+console.log(submitAnswer())
 
-// AZZERARE IL QUIZ ALLA FINE
-/*function resetQuiz() {
 
-  corrette = 0;
-  sbagliate = 0;
-  currentQuestionIndex = 0;
+// corrette = submitAnswer()
+// sbagliate = 10- submitAnswer()
 
-  localStorage.removeItem('userAnswers');
+// Dati del grafico
+const dati = {
+  datasets: [{
+    data: [], // I tuoi dati qui
+    backgroundColor: ['#00ffff', '#c2128d']
+  }]
+};
 
-  showCurrentQuestion();
-}*/
+dati.datasets[0].data.push((10 - sbagliate))
+dati.datasets[0].data.push(sbagliate)
+
+// Opzioni del grafico
+var opzioni = {
+  responsive: true,
+  maintainAspectRatio: false,
+  display: true
+};
+
+
+// Ottieni il riferimento al canvas
+var ctx = document.getElementById('doughnutChart').getContext('2d');
+
+// Crea il grafico a forma di anello
+var doughnutChart = new Chart(ctx, {
+  type: 'doughnut',
+  data: dati,
+  options: opzioni
+});
+
+doughnutChart.update()

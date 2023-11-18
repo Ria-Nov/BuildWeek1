@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Benchmark</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="stylesheet" href="assets/CSS/style.css">
 </head>
 
@@ -22,19 +23,52 @@
         </div>
 
     </header>
-    <main>
+    <main id="paginaQuiz">
 
         <div id="quizContainer"></div>
 
 
 
         </div>
-    </main>
+    
     <footer>
         <div class="divft" id="contatore"></div>
         <div><button type="button" id="next" class="divft" name="next" onclick="submitAnswer()">NEXT</button></div>
     </footer>
+</main>
 
+    <div id="paginaRisultati">
+        <div class="centro">
+        <h1>Results</h1>
+        <h3>The summary of your answers:</h3>
+      </div>
+
+      <div class="allinea">
+        <h2>Correct</h2>
+        <h2></h2>
+        <p id="giuste"></p>
+      </div>
+
+      <div class="allinea" id="grafico">
+        <canvas id="doughnutChart" width="600" height="600" >
+        </canvas>
+      </div>
+      
+
+      <div class="allinea">
+        <h2>Wrong</h2>
+        <h2 id="sbagliate"></h2>
+        <p id="errate"></p>
+      </div>
+
+      <footer class="centro">
+        <div>
+          <a href="feedback.html">
+            <button type="button" id="rate">RATE US</button>
+          </a>
+        </div>
+      </footer>
+</div>
 <script src="assets/JavaScript/benchmarkscript.js"></script>
 </body>
 

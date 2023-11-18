@@ -306,9 +306,7 @@ fieldset {
   background-image: url('../Images/star.svg'); /* Immagine stella piena */
 }
 
-.star:hover {
-  border-color: gold; /* Cambiato il colore del bordo a oro al passaggio del mouse */
-}
+
 
 /* result */
 

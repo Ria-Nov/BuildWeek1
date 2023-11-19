@@ -12,17 +12,17 @@
 // */
 
 
-// localstorage
-if (!localStorage.getItem('quizResponses')) {
-  localStorage.setItem('quizResponses', '');
-}
+// // localstorage
+// if (!localStorage.getItem('quizResponses')) {
+//   localStorage.setItem('quizResponses', '');
+// }
 
-function gestisciRisposta(domanda, rispostaData, corretta) {
-  var quizResponses = localStorage.getItem('quizResponses') || '';
-  var nuovaRisposta = domanda + '|' + rispostaData + '|' + corretta + ';';
-  quizResponses += nuovaRisposta;
-  localStorage.setItem('quizResponses', quizResponses);
-}
+// function gestisciRisposta(domanda, rispostaData, corretta) {
+//   var quizResponses = localStorage.getItem('quizResponses') || '';
+//   var nuovaRisposta = domanda + '|' + rispostaData + '|' + corretta + ';';
+//   quizResponses += nuovaRisposta;
+//   localStorage.setItem('quizResponses', quizResponses);
+// }
 
 // libreria
 
@@ -156,10 +156,13 @@ function startTimer() {
 
     if (no <= 0) {
       clearInterval(fill);
+      resetTimer()
+      currentQuestionIndex++;
+      showCurrentQuestion()
       counter.fillStyle = 'transparent';
       counter.fillRect(0, 0, cw, ch);
 
-      currentQuestionIndex++;
+      
     }
     no--;
   }
@@ -203,7 +206,7 @@ window.onload = function () {
 function showCurrentQuestion() {
   const quizContainer = document.getElementById('quizContainer');
   const currentQuestion = questions[currentQuestionIndex];
-  contatore.innerText = `Domanda ${currentQuestionIndex + 1}/${questions.length}`;
+  contatore.innerText = `Question ${currentQuestionIndex + 1}/${questions.length}`;
   quizContainer.innerHTML = `
         <h2 class="centrato">${currentQuestion.question}</h2>
         <div class="centrato">${generateAnswerOptions(currentQuestion)}</div>`;

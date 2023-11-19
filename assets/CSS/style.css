@@ -23,7 +23,6 @@ html {
 
 .rientro,
 .logo,
-.divft,
 .centrato,
 footer .check {
   margin-left: 10vw;
@@ -158,7 +157,6 @@ label {
   float: right;
 }
 
-.divft,
 .allinea,
 .star {
   display: inline-block;
@@ -191,9 +189,7 @@ label {
   margin-top: 5vh;
 }
 
-#rate {
-  margin-left: -10vw;
-}
+
 
 /* feedback */
 
@@ -252,4 +248,17 @@ fieldset {
 .star.active,
 .star.selected {
   background-image: url("../Images/star.svg"); /* Immagine stella piena */
+}
+
+/* contatore */
+
+#contatore{
+  font-size: 20px;
+  margin-left: 10vw;
+  display: inline;
+}
+
+.divft{
+  float: right;
+  vertical-align: top;
 }

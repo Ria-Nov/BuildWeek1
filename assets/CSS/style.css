@@ -1,6 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400;500;700;900&family=Outfit:wght@100;300;500;600;700;900&display=swap");
 
-
 body,
 html {
   font-family: "Inter", sans-serif;
@@ -20,14 +19,19 @@ html {
 
 /* istruzioni main */
 
-.rientro {
+/* home */
+
+.rientro,
+.logo,
+.divft,
+.centrato,
+footer .check {
   margin-left: 10vw;
 }
 
 .logo {
   width: 13%;
   margin-top: 5vh;
-  margin-left: 10vw;
 }
 
 .titolo {
@@ -35,7 +39,6 @@ html {
 }
 
 .titolo h1 {
-  font-weight: 300;
   font-size: 60px;
   line-height: 3rem;
   padding-top: 6vh;
@@ -52,7 +55,6 @@ html {
 
 .istruzioni h2 {
   color: #d20094;
-
   font-size: 2rem;
   font-weight: 600;
   margin-bottom: -15px;
@@ -64,13 +66,11 @@ html {
 }
 
 .testi {
-
   padding-bottom: 0;
-
-
 }
 
-p {
+p,
+.titolo h1 {
   font-weight: 300;
 }
 
@@ -86,41 +86,52 @@ footer {
 }
 
 footer .check {
-  margin-left: 10vw;
   display: inline;
   margin-bottom: 0;
 }
 
-#proceed {
-  float: right;
+#proceed, #next {
   margin-right: 10vw;
 }
 
+/* bottoni */
+
 #proceed,
-.moreinfo, #next, #rate {
+.moreinfo,
+#next,
+#rate {
   background-color: #00ffff;
-  color: #0C113B;
+  color: #0c113b;
   text-transform: uppercase;
   font-weight: bold;
   padding: 15px 50px;
-  text-align: center;
   text-decoration: none;
-  cursor: pointer;
   border: none;
-  box-shadow: 0px 0px 18px #00FFFF;
+  box-shadow: 0px 0px 18px #00ffff;
 }
 
+#proceed,
+.moreinfo,
+#next,
+#rate,
+.star {
+  cursor: pointer;
+}
+
+#proceed,
+.moreinfo,
+#next,
+#rate,
+.centro,
+.allinea,
+.feedback {
+  text-align: center;
+}
 
 #proceed:hover,
 .moreinfo:hover {
   box-shadow: 0 0px 16px rgba(0, 0, 0, 0.2);
 }
-
-
-#proceed:hover {
-  box-shadow: 0 0px 16px rgba(0, 0, 0, 0.2);
-}
-
 
 #casella,
 label {
@@ -129,125 +140,64 @@ label {
 }
 
 #casella {
-  background-color: #0C113B;
   border: 2px #fff solid;
-  
-
 }
 
-#casella:checked {
-  background-color: #0C113B;
-}
-
-
-/* benchmark*/
-.domande h1 {
-  font-size: 55px;
-  width: 40%;
-  margin: auto;
-  font-weight: 300;
-  margin-top: 10%;
-  text-align: center;
-  line-height: 53px;
+#casella:checked,
+#casella {
+  background-color: #0c113b;
 }
 
 #timer {
-  float: right;
   border-radius: 50%;
   margin-right: 5vw;
-} 
+}
+#proceed,
+#timer,
+#next {
+  float: right;
+}
 
-.divft{
+.divft,
+.allinea,
+.star {
   display: inline-block;
-  margin-left: 10vw;
 }
 
-#next{
-  float: right;
-  margin-right: 10vw;
-}
-
-
-.timer {
-  margin: 20px;
-  width: 150px;
-  height: 150px;
-  background-color: chartreuse;
-  /*position: fixed;*/
-  top: 0;
-  float: right;
-  border-radius: 50%;
-  margin-right: 10vw;
-  margin-top: 1vw;
-}
-
-.contatore {
-
-  width: 40%;
-  margin: auto;
-  font-weight: bold;
-  margin-top: 10%;
-  text-align: center;
-  letter-spacing: 3px;
-  font-size: 20px;
-
-
-}
-
-.centrato{
-  /* display: flex;
-  justify-content: center;
-  align-items: center; */
-  /* flex-direction: column; */
-  margin-left: 10vw;
+.centrato {
   margin-top: 7vh;
 }
 
-.inline{
+.inline {
   border: 2px solid #fff;
   border-radius: 15px;
   margin: 20px;
   padding: 30px;
-  /* display: flex;
-  align-items: center;
-  justify-content: center; */
   background-color: purple;
   width: 50%;
-  
 }
 
-#risposte {
-  text-align: center;
-  margin-top: 5%;
-  /*width: 40%;*/
-  /*margin: auto;*/
+.centro {
+  margin: auto;
+}
 
+.allinea {
+  width: 33%;
+  height: 30vh;
 }
-/*.opzione1 p {
-  display: inline;
-  width: 50%;
-}
-.opzione2 p {
-  display: inline;
-  width: 50%;
-}
-.opzione1,
-.opzione2 {
-  background-color: rgba(255, 255, 255, 0.1);
-  border: 3px solid transparent;
-  display: inline-block;
-  width: 50%;
-  margin: 10px;
-  border-radius: 40px 40px 40px 40px;
-  box-shadow: 0 -8px 0px 10px;
-    padding: 5px;
 
-}*/
+#doughnutChart {
+  border: none;
+  margin-top: 5vh;
+}
+
+#rate {
+  margin-left: -10vw;
+}
 
 /* feedback */
 
 .feedback {
-  text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -290,12 +240,10 @@ fieldset {
 /* stelline */
 
 .star {
-  display: inline-block;
   width: 30px;
   height: 30px;
-  background-image: url('../Images/star-regular.svg'); /* Immagine stella vuota */
+  background-image: url("../Images/star-regular.svg"); /* Immagine stella vuota */
   background-size: cover;
-  cursor: pointer;
   border: 1px solid transparent; /* Aggiunto il bordo trasparente alle stelle vuote */
   transition: border-color 0.3s; /* Aggiunto un effetto di transizione per una transizione più fluida */
 }
@@ -303,32 +251,5 @@ fieldset {
 .star:hover,
 .star.active,
 .star.selected {
-  background-image: url('../Images/star.svg'); /* Immagine stella piena */
-}
-
-
-
-/* result */
-
-.centro {
-  text-align: center;
-  margin: auto;
-  
-}
-
-.allinea{
-  display: inline-block;
-  width:33%;
-  height: 30vh;
-  text-align: center;
-}
-
-#doughnutChart {
-  border:none;
-  margin-top: 5vh;
-}
-
-#rate{
-  margin-left: -10vw;
-  
+  background-image: url("../Images/star.svg"); /* Immagine stella piena */
 }

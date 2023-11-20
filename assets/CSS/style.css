@@ -263,3 +263,16 @@ fieldset {
   vertical-align: top;
   margin-bottom: 50px;
 }
+
+#chartLegend{
+  margin-top: 10px;
+}
+
+.allinea h2{
+  font-size: 60px;
+}
+
+
+#errate, #giuste{
+font-size: 30px;
+}

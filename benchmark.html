@@ -25,19 +25,19 @@
     </header>
     <main id="paginaQuiz">
 
-        <div id="quizContainer"></div>
+        <div id="quizContainer" class="quiz"></div>
 
 
 
         </div>
     
     <footer>
-        <div id="contatore"></div>
-        <div class="divft"><button type="button" id="next"  name="next" onclick="submitAnswer()">NEXT</button></div>
+        <div class="divft" id="contatore"></div>
+        <div><button type="button" id="next" class="divft" name="next" onclick="submitAnswer()">NEXT</button></div>
     </footer>
 </main>
 
-    <div id="paginaRisultati">
+    <div id="paginaRisultati" style="display: none;">
         <div class="centro">
         <h1>Results</h1>
         <h3>The summary of your answers:</h3>
@@ -50,8 +50,8 @@
       </div>
 
       <div class="allinea" id="grafico">
-        <canvas id="doughnutChart" width="600" height="600" >
-        </canvas>
+        <canvas id="doughnutChart" width="600" height="600"></canvas>
+        <div id="chartLegend" class="chart-legend"></div>
       </div>
       
 

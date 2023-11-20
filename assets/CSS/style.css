@@ -259,6 +259,6 @@ fieldset {
 }
 
 .divft{
-  float: right;
   vertical-align: top;
+  margin-bottom: 50px;
 }

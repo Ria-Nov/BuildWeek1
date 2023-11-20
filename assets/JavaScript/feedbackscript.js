@@ -1,11 +1,16 @@
 document.addEventListener("DOMContentLoaded", function () {
   const stars = document.querySelectorAll(".star");
+  let assignedRating = 0;
+
 
   stars.forEach(function (star) {
     star.addEventListener("mouseover", function () {
-      resetStars();
+      if(assignedRating == 0){
+        resetStars();
       const ratingValue = this.getAttribute("data-rating");
       highlightStars(ratingValue);
+      }
+    
     });
 
     // star.addEventListener('click', function () {
@@ -13,9 +18,9 @@ document.addEventListener("DOMContentLoaded", function () {
     // });
 
     star.addEventListener("click", function () {
-      // resetStars();
-      const ratingValue = this.getAttribute("data-rating");
-      highlightStars(ratingValue);
+      resetStars();
+      assignedRating = this.getAttribute("data-rating");
+      highlightStars(assignedRating);
     });
   });
 

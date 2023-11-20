@@ -235,10 +235,6 @@ function submitAnswer() {
 
   // Sposta la chiamata qui per evitare problemi con il timer
   showNextQuestionOrResult();
-
-  console.log("Corrette:", corrette);
-  console.log("Sbagliate:", sbagliate);
-  console.log("Current Question Index:", currentQuestionIndex);
 }
 // Avvia il timer e mostra la prima domanda
 startTimer();

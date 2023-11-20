@@ -247,12 +247,7 @@ fieldset {
 .star:hover,
 .star.active,
 .star.selected {
-<<<<<<< HEAD
-  background-image: url('../Images/star.svg');
-  border: 1px solid black; /* Immagine stella piena */
-=======
   background-image: url("../Images/star.svg"); /* Immagine stella piena */
->>>>>>> 74cf9056b102ab47022690e150856b8d58634077
 }
 
 /* contatore */
